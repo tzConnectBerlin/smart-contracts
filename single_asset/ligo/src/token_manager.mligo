@@ -60,7 +60,7 @@ let mint_tokens (txs, storage : mint_burn_tokens_param * single_token_storage)
     : (operation list) * single_token_storage =
   let tx_descriptors = mint_params_to_descriptors txs in
   let nop_operator_validator = 
-    fun (p : address * address * token_id * operator_storage) -> unit in
+    fun (_ : address * address * token_id * operator_storage) -> unit in
   let ops, new_s1 = fa2_transfer (tx_descriptors, nop_operator_validator, storage) in 
 
   let supply_change = get_total_supply_change txs in
@@ -74,7 +74,7 @@ let burn_tokens (txs, storage : mint_burn_tokens_param * single_token_storage)
     : (operation list) * single_token_storage =
   let tx_descriptors = burn_params_to_descriptors txs in
   let nop_operator_validator = 
-    fun (p : address * address * token_id * operator_storage) -> unit in
+    fun (_ : address * address * token_id * operator_storage) -> unit in
   let ops, new_s1 = fa2_transfer (tx_descriptors, nop_operator_validator, storage) in 
 
   let supply_change = get_total_supply_change txs in

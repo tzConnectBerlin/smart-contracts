@@ -16,7 +16,7 @@ type token_owner =
   | Owner_remove_operator of owner_operator_param
   | Default of unit
 
-let token_owner_main (param, s : token_owner * unit) 
+let token_owner_main (param, _ : token_owner * unit) 
     : (operation list) * unit =
   match param with
 
@@ -48,5 +48,5 @@ let token_owner_main (param, s : token_owner * unit)
     | Some entry -> Tezos.transaction [Remove_operator param] 0mutez entry in
     [update_op], unit
 
-  | Default u -> ([] : operation list), unit
+  | Default _ -> ([] : operation list), unit
   

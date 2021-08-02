@@ -45,4 +45,4 @@ let main (p, s : param * storage) : (operation list) * storage =
     *)
     ([] : operation list), State responses
 
-  | Default u -> ([] : operation list), s
+  | Default _ -> ([] : operation list), s

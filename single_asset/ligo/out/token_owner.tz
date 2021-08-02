@@ -17,8 +17,7 @@
                  CAR ;
                  CDR ;
                  PAIR ;
-                 SELF ;
-                 ADDRESS ;
+                 SELF_ADDRESS ;
                  PAIR ;
                  SWAP ;
                  CAR ;
@@ -47,8 +46,7 @@
              CAR ;
              CDR ;
              PAIR ;
-             SELF ;
-             ADDRESS ;
+             SELF_ADDRESS ;
              PAIR ;
              SWAP ;
              CAR ;

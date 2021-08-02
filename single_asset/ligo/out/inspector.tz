@@ -6,15 +6,11 @@
   storage
     (or (unit %empty)
         (list %state (pair (pair %request (address %owner) (nat %token_id)) (nat %balance)))) ;
-  code { DUP ;
-         CDR ;
-         SWAP ;
-         CAR ;
+  code { UNPAIR ;
          IF_LEFT
            { IF_LEFT
                { DROP ; NIL operation ; PAIR }
-               { SELF ;
-                 ADDRESS ;
+               { SELF_ADDRESS ;
                  CONTRACT %response
                    (list (pair (pair %request (address %owner) (nat %token_id)) (nat %balance))) ;
                  IF_NONE { PUSH string "NO_RESPONSE_ENTRYPOINT" ; FAILWITH } {} ;
